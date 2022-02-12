@@ -10,11 +10,9 @@ class Event extends Component {
     };
   }
   handleClick = () => {
-    console.log("handle click envnt triggered");
     this.setState({
       collapsed: !this.state.collapsed
     });
-    console.log("handle click envnt triggered", this.state.collapsed);
   };
   render() {
     const { event } = this.props;
@@ -24,6 +22,9 @@ class Event extends Component {
       <div className="event">
         <h2 className="summary">{event.summary}</h2>
         <h2 className="location">{event.location}</h2>
+        <p className="start-date">
+          {event.start.dateTime} ({event.start.timeZone})
+        </p>
         <Button
           className={`${collapsed ? "show" : "hide"}-details`}
           onClick={this.handleClick}
