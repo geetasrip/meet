@@ -3,13 +3,13 @@ import axios from "axios";
 import NProgress from "nprogress";
 
 const API_GATEWAY_AUTH_URL =
-  "https://8liiv8f4ig.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
+  "https://rhppuadkvh.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
 
 const API_TOKEN_URL =
-  "https://8liiv8f4ig.execute-api.eu-central-1.amazonaws.com/dev/api/token";
+  "https://rhppuadkvh.execute-api.eu-central-1.amazonaws.com/dev/api/token";
 
 const API_EVENTS_ENDPOINT =
-  "https://8liiv8f4ig.execute-api.eu-central-1.amazonaws.com/dev/api/getevents";
+  "https://rhppuadkvh.execute-api.eu-central-1.amazonaws.com/dev/api/get-calendar-events";
 
 /**
  *
@@ -38,10 +38,12 @@ const checkToken = async accessToken => {
 export const getEvents = async () => {
   NProgress.start();
 
-  if (window.location.href.startsWith("http://localhost")) {
-    NProgress.done();
-    return mockData;
-  }
+  // if (window.location.href.startsWith("http://localhost")) {
+  //   NProgress.done();
+  //   return mockData;
+  // }
+  NProgress.done();
+  return mockData;
 
   const token = await getAccessToken();
 
