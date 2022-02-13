@@ -50,6 +50,20 @@ module.exports.getAuthURL = async () => {
    *  scopes are the ones users will see when the consent screen is displayed to them.
    *
    */
+
+  exports.handler = async event => {
+    const response = {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+      },
+      body: JSON.stringify("Hello from Lambda!")
+    };
+    return response;
+  };
+
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
     scope: SCOPES
