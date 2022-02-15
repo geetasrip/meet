@@ -1,20 +1,34 @@
 import React, { Component } from "react";
+
+import { ErrorAlert } from "./Alert";
+
 class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: 32
+    numberOfEvents: 32,
+    errorText: ""
   };
   handleInputChanged = event => {
     const value = event.target.value;
-    if (value < 1 || value > 10) {
+
+    if (value < 1 || value > 32) {
+      console.log("inside iff", value);
       this.setState({
-        numberOfEvents: ""
+        numberOfEvents: "",
+        errorText: "Number of Events must be a non-negative integer"
       });
     } else {
+      console.log("inside elseee", value);
       this.setState({
-        numberOfEvents: value
+        numberOfEvents: value,
+        errorText: ""
       });
     }
   };
+
+  RemoveNonNumeric = text => {
+    return text.replace(/[^0-9]/g, "");
+  };
+
   render() {
     return (
       <div className="NumberOfEvents">
@@ -28,6 +42,9 @@ class NumberOfEvents extends Component {
           value={this.state.numberOfEvents}
           onChange={e => this.handleInputChanged(e)}
         />
+        <div className="number-of-events__error">
+          <ErrorAlert text={this.state.errorText} />
+        </div>
       </div>
     );
   }
