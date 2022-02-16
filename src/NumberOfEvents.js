@@ -31,18 +31,20 @@ class NumberOfEvents extends Component {
 
   render() {
     return (
-      <div className="NumberOfEvents">
-        <p>
-          <b>Number of Events:</b>
-        </p>
-        <input
-          type="number"
-          name="number"
-          className="number-of-events"
-          value={this.state.numberOfEvents}
-          onChange={e => this.handleInputChanged(e)}
-        />
-        <div className="number-of-events__error">
+      <div>
+        <div>
+          <p>
+            <b>Number of Events:</b>
+          </p>
+          <input
+            type="number"
+            name="number"
+            className="number-of-events"
+            value={this.state.numberOfEvents}
+            onChange={e => this.handleInputChanged(e)}
+          />
+        </div>
+        <div>
           <ErrorAlert text={this.state.errorText} />
         </div>
       </div>

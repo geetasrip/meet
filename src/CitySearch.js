@@ -8,7 +8,7 @@ class CitySearch extends Component {
     this.state = {
       query: "",
       suggestions: [],
-      showSuggestions: true,
+      showSuggestions: undefined,
       infoText: ""
     };
   }
