@@ -43,20 +43,10 @@ export const getEvents = async () => {
   //   return mockData;
   // }
 
-  if (navigator.onLine && mockData) {
-    var locations = extractLocations(mockData);
-    localStorage.setItem("lastEvents", JSON.stringify(mockData));
-    localStorage.setItem("locations", JSON.stringify(locations));
-    NProgress.done();
-    return mockData;
-  }
-
   if (!navigator.onLine) {
-    alert("we are i offline mode");
-    const data = localStorage.getItem("lastEvents");
-    const events = localStorage.getItem("locations");
+    const events = localStorage.getItem("lastEvents");
     NProgress.done();
-    return data ? JSON.parse(events).events : [];
+    return events ? JSON.parse(events).events : [];
   }
 
   const token = await getAccessToken();
