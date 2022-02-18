@@ -17,6 +17,7 @@ class Event extends Component {
   render() {
     const { event } = this.props;
     const { collapsed } = this.state;
+    const description = event.description;
 
     return (
       <div className="event">
@@ -25,6 +26,7 @@ class Event extends Component {
         <p className="start-date">
           {event.start.dateTime} ({event.start.timeZone})
         </p>
+        <p>{`${collapsed ? "" : description}`}</p>
         <Button
           className={`${collapsed ? "show" : "hide"}-details`}
           onClick={this.handleClick}
