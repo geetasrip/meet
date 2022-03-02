@@ -10,6 +10,12 @@ This mobile chat app is made using React Native. The app has an interface that e
 * Google Firebase
 * Gifted chat
 
+# Installation
+* git clone 
+* npm install --global expo-cli
+* npm start
+* setup emulator/simulator
+
 Key Features
 * page where users can enter their name and choose a background color for the chat screen before joining the chat.
 * A page displaying the conversation of the users.
